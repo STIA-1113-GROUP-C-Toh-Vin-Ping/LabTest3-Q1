@@ -1,0 +1,46 @@
+package quiz;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class LT3Q1 {
+	public static Scanner sc = new Scanner(System. in );
+
+public static void main(String[] args) 
+{
+	System.out.println("How many words do you want to enter?");
+    int wordenter = sc.nextInt();
+
+    System.out.println("Enter " + wordenter + " words:");
+    ArrayList<String> words = new ArrayList<>();
+    for(int i = 0; i < wordenter; i++) {
+        words.add(sc.next());
+    }
+
+
+    ArrayList<String> countation = repeat(words);
+    for (String word: countation) {
+        int a = count(words, word);
+        System.out.println(word + ": " + a);
+    }
+}
+
+public static int count(ArrayList<String> numbers, String word) {
+    int count = 0;
+    for (String a: numbers) {
+        if (a.equals(word)) {
+            count++;
+        }
+    }
+    return count;
+}
+
+public static ArrayList<String> repeat(ArrayList<String> uti) {
+    ArrayList<String> repeatation = new ArrayList<>();
+    for(String s: uti) {
+        if (! repeatation.contains(s)) {
+        	repeatation.add(s);
+        }
+    }
+    return repeatation;
+}
+}
